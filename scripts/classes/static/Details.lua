@@ -1,14 +1,15 @@
 -- --------------------------------------------------------------------------------
 local projectManager = resolve:GetProjectManager()
-local currentProject = projectManager:GetCurrentProject()
-local timeline = currentProject:GetTimelineByIndex(1)
+local project = projectManager:GetCurrentProject()
+local timeline = project:GetCurrentTimeline()
 local Path = require('scripts/classes/Path')
 
 
 -- --------------------------------------------------------------------------------
 local Details = {
-    name = currentProject:GetName(),
+    name = project:GetName(),
     fps = timeline:GetSetting('timelineFrameRate'),
+    project = project,
     timeline = timeline,
     path = Path:new(),
 }
@@ -17,14 +18,14 @@ local Details = {
 -- --------------------------------------------------------------------------------
 -- Validate project exists in current folder
 local found = false
-currentProject:SetName(Details.name .. ' #📜')
+project:SetName(Details.name .. ' #📜')
 for _, folderProject in ipairs(projectManager:GetProjectListInCurrentFolder()) do
     if (folderProject == (Details.name .. ' #📜')) then
         found = true
         break
     end
 end
-currentProject:SetName(Details.name)
+project:SetName(Details.name)
 
 if (not found) then
     print('Project NOT FOUND in Project Manager')

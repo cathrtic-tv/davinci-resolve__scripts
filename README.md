@@ -13,6 +13,7 @@
     <br>
     <a href="#exporting-subtitles">Subtitles</a> •
     <a href="#exporting-timestamps">Timestamps</a> •
+    <a href="#exporting-thumbnails">Thumbnails</a> •
     <a href="#updating-markers">Markers</a>
 </p>
 
@@ -35,7 +36,7 @@ On Windows, this is typically located at:\
 <br>
 
 > [!NOTE]
-> This project requires you to create and configure a `.env` file, using `.env.example` as a reference.
+> This project requires you to create and configure a `.env` file, using `.env.example` as a reference.\
 > The value of `OUTPUT_PATH` should be an absolute path.
 
 <br>
@@ -57,7 +58,7 @@ You can also assign these scripts to keyboard shortcuts by going to:\
 ## Exporting Subtitles
 When running `"📤 Export All"` or `"📤 Export Subtitles"`, every Subtitle Track will be processed and exported as a series of `.json` files saved to: `[OUTPUT_PATH]/[Project Path]/[Project Name]/Metadata/`.
 
-Subtitle Tracks named `"Subtitle 1"` or `"English"` (case insensitive) will be outputted as `subtitles.json`.
+Subtitle Tracks named `"Subtitle 1"` or `"English"` (case insensitive) will be outputted as `subtitles.json`.\
 All other Subtitle Tracks, for example `"French"`, will be outputted as `subtitles.french.json`.
 
 <br>
@@ -100,18 +101,27 @@ Example `timestamps.json`:
 ```json
 [{
     "text":"Introduction",
-    "startHours":0,
+    "startHours":1,
     "startMinutes":0,
     "startSeconds":0,
     "startMilliseconds":0
   },{
     "text":"Background",
-    "startHours":0,
+    "startHours":1,
     "startMinutes":0,
     "startSeconds":50,
     "startMilliseconds":133
   },{ ...
 ```
+
+
+
+<br>
+
+## Exporting Thumbnails
+When running `"📤 Export All"` or `"📤 Export Thumbnails"`, every `Cocoa` colored Timeline Marker (including Cocoa alt-colored Timeline Markers) will be processed to export a `.png` Frame Still saved to: `[OUTPUT_PATH]/[Project Path]/[Project Name]/Thumbnail/`.
+
+Frame Stills are named with the format `FRAME STILL HH-MM-SS-FF.png`, where HH-MM-SS-FF represents the Timeline timecode in hours, minutes, seconds, and frames.
 
 
 

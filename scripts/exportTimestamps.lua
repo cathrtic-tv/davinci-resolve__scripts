@@ -21,7 +21,7 @@ local function exportTimestamps(outputPath)
         local marker = timelineMarkers[frame]
         if (marker.color ~= 'Cream') then goto continue end
 
-        local startTotalSeconds = frame / Details.fps
+        local startTotalSeconds = (frame / Details.fps) + 3600
 
         table.insert(outputTable, {
             text = marker.name,

@@ -21,9 +21,9 @@ print()
 
 
 -- --------------------------------------------------------------------------------
-local outputPath = Path:new(Env.OUTPUT_PATH, Details.path, 'Metadata')
+local outputPath = Path:new(Env.OUTPUT_PATH, Details.path)
 print('Output Path: ' .. '"' .. tostring(outputPath) .. '"')
 
-require('scripts/exportTimestamps')(outputPath)
+require('scripts/exportTimestamps')(Path:new(outputPath, 'Metadata'))
 print()
 print()

@@ -21,9 +21,9 @@ print()
 
 
 -- --------------------------------------------------------------------------------
-local outputPath = Path:new(Env.OUTPUT_PATH, Details.path, 'Metadata')
+local outputPath = Path:new(Env.OUTPUT_PATH, Details.path)
 print('Output Path: ' .. '"' .. tostring(outputPath) .. '"')
 
-require('scripts/exportSubtitles')(outputPath)
+require('scripts/exportSubtitles')(Path:new(outputPath, 'Metadata'))
 print()
 print()

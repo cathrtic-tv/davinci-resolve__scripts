@@ -14,7 +14,7 @@ local Env = require('scripts/classes/static/Env')
 local Path = require('scripts/classes/Path')
 
 print(string.rep('-', 80))
-print('-- Update Markers')
+print('-- Remove Markers')
 print('Executing: ' .. '"' .. string.gsub(tostring(Path:new(workingDirectory)), 'Users/(.-)/AppData', 'Users/########/AppData') .. '"')
 print('Date/Time: ' .. os.date("%Y-%m-%d, %H:%M:%S"))
 print()
@@ -22,6 +22,5 @@ print()
 
 -- --------------------------------------------------------------------------------
 require('scripts/markersClear')()
-require('scripts/markersConvert')()
 print()
 print()

@@ -127,8 +127,8 @@ Frame Stills are named with the format `FRAME STILL HH-MM-SS-FF.png`, where HH-M
 
 <br>
 
-## Updating Markers
-When running `"🏷️ Update Markers"`, each Marker (or `.mp4` Chapter) prefixed with `"## "` in your project's Timeline Items gets copied to the main Timeline.
+## Generating Markers
+When running `"🏷️ Generate Markers"`, each Marker (or `.mp4` Chapter) prefixed with `"## "` in your project's Timeline Items gets copied to the main Timeline.
 
 A generated Marker's color is picked from the `MARKER_[COLOR]` `.env` variables, with `_ALT` colors having a black dot in the middle. These are case insensitive, although the resulting Marker will always be uppercase. If a color is not found, the Marker defaults to Blue.
 
@@ -137,14 +137,14 @@ A generated Marker's color is picked from the `MARKER_[COLOR]` `.env` variables,
 Example generated Markers:
 <table align="center">
     <tr>
-        <th>BEFORE</th>
-        <th>AFTER</th>
+        <th width="50%">BEFORE</th>
+        <th width="50%">AFTER</th>
     </tr>
     <tr>
-        <td>
+        <td width="50%">
             <img src=".github/README/markers-before.png" width="100%">
         </td>
-        <td>
+        <td width="50%">
             <img src=".github/README/markers-after.png" width="100%">
         </td>
     </tr>
@@ -152,3 +152,7 @@ Example generated Markers:
 
 > [!NOTE]
 > Generated Markers will never override existing Markers on the Timeline
+
+<br>
+
+Alternatively, when running `"🏷️ Remove Markers"`, each Marker prefixed with `"## "` in your project's Timeline will be deleted. Your project's Timeline Item Markers (and `.mp4` Chapters) are unaffected.

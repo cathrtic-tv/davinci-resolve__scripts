@@ -29,10 +29,18 @@ local function exportThumbnails(outputPath)
 
         local timecode = startHours .. ':' .. startMinutes .. ':' .. startSeconds .. ':' .. startFrame
         local timecodeFormatted = startHours .. '-' .. startMinutes .. '-' .. startSeconds .. '-' .. startFrame
-        Details.timeline:SetCurrentTimecode(timecode)
-        Details.project:ExportCurrentFrameAsStill(tostring(Path:new(outputPath, 'FRAME STILL ' .. timecodeFormatted .. '.png')))
 
-        print('Exported: "' .. 'FRAME STILL ' .. timecodeFormatted .. '.png"')
+        local markerName = marker.name
+        if (markerName == 'Unknown Color Marker' or markerName == '') then
+            markerName = 'FRAME STILL'
+        end
+        markerName = string.gsub(markerName, '^## ', '')
+        markerName = markerName .. ' ' .. timecodeFormatted .. '.png'
+
+        Details.timeline:SetCurrentTimecode(timecode)
+        Details.project:ExportCurrentFrameAsStill(tostring(Path:new(outputPath, markerName)))
+
+        print('Exported: "' .. markerName .. '"')
         ::continue::
     end
 

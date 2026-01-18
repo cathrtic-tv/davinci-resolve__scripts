@@ -37,17 +37,20 @@ local Env = {
 
 
 -- --------------------------------------------------------------------------------
+-- Selects contents inside whitespaces
 local function trim(s)
     s = s:gsub('^%s*(.-)%s*$', '%1')
     return s
 end
 
+-- Selects contents inside "s and 's
 local function removeQuotes(s)
     s = s:gsub('^"(.*)"$', '%1')
     s = s:gsub("^'(.*)'$", '%1')
     return s
 end
 
+-- Removes inline comments
 local function removeComments(s)
     s = s:gsub('%s*#.*$', '')
     return s
@@ -57,14 +60,18 @@ end
 -- --------------------------------------------------------------------------------
 -- Get workingDirectory
 local workingDirectory = package.path:match('^[^;]+')
-workingDirectory = string.gsub(workingDirectory, '?.lua', '')
+workingDirectory = string.gsub(workingDirectory, '%?.lua', '')
 
 -- Read .env file
 for line in io.lines(workingDirectory .. '.env') do
-    -- Skip comments and empty lines
-    if (line:match('^%s*#') == nil and line:match('^%s*$') == nil) then
-        local key, value = line:match('^%s*([%w_]+)%s*=%s*(.+)%s*$')
+    -- Windows CRLF fix
+    line = line:gsub('\r$', '')
 
+    -- Skip comments and empty lines
+    local commentOrEmpty = (line:match('^%s*#') or line:match('^%s*$'))    
+    if (not commentOrEmpty) then
+
+        local key, value = line:match('^%s*([%w_]+)%s*=%s*(.+)%s*$')
         value = removeComments(value)
 
         -- If array

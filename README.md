@@ -1,10 +1,14 @@
 # DaVinci Resolve Scripts
-<!-- <div>
-    <picture><img src=".github/README/banner.png" width="100%"></picture>
+<div>
+    <picture>
+        <!-- <source srcset=".github/README/banner.png" media="(prefers-color-scheme: light)"> -->
+        <!-- <img src=".github/README/banner.png" width="100%" alt="Template Logo"> -->
+    </picture>
     <div>
-        <a href="https://ko-fi.com/CathRTic_tv"><img align="right" src="https://img.shields.io/badge/Support%20me%20on%20Ko--fi-%231F6FEBFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTEuMzUxIDIuNzE1Yy0yLjcgMC00Ljk4Ni4wMjUtNi44My4yNkMyLjA3OCAzLjI4NSAwIDUuMTU0IDAgOC42MWMwIDMuNTA2LjE4MiA2LjEzIDEuNTg1IDguNDkzYzEuNTg0IDIuNzAxIDQuMjMzIDQuMTgyIDcuNjYyIDQuMTgyaC44M2M0LjIwOSAwIDYuNDk0LTIuMjM0IDcuNjM3LTRhOS41IDkuNSAwIDAgMCAxLjA5MS0yLjMzOEMyMS43OTIgMTQuNjg4IDI0IDEyLjIyIDI0IDkuMjA4di0uNDE1YzAtMy4yNDctMi4xMy01LjUwNy01Ljc5Mi01Ljg3Yy0xLjU1OC0uMTU2LTIuNjUtLjIwOC02Ljg1Ny0uMjA4bTAgMS45NDdjNC4yMDggMCA1LjA5LjA1MiA2LjU3MS4xODJjMi42MjQuMzExIDQuMTMgMS41ODQgNC4xMyA0di4zOWMwIDIuMTU2LTEuNzkyIDMuODQ0LTMuODcgMy44NDRoLS45MzVsLS4xNTYuNjQ5Yy0uMjA4IDEuMDEzLS41OTcgMS44MTgtMS4wMzkgMi41NDZjLS45MDkgMS40MjgtMi41NDUgMy4wNjQtNS45MjIgMy4wNjRoLS44MDVjLTIuNTcxIDAtNC44MzEtLjg4My02LjA3OC0zLjE5NWMtMS4wOS0yLTEuMjk4LTQuMTU1LTEuMjk4LTcuNTA2YzAtMi4xODEuODU3LTMuNDAyIDMuMDEyLTMuNzE0YzEuNTMzLS4yMzMgMy41NTktLjI2IDYuMzktLjI2bTYuNTQ3IDIuMjg3Yy0uNDE2IDAtLjY1LjIzNC0uNjUuNTQ2djIuOTM1YzAgLjMxMS4yMzQuNTQ1LjY1LjU0NWMxLjMyNCAwIDIuMDUxLS43NTQgMi4wNTEtMnMtLjcyNy0yLjAyNi0yLjA1Mi0yLjAyNm0tMTAuMzkuMTgyYy0xLjgxOCAwLTMuMDEzIDEuNDgtMy4wMTMgMy4xNDJjMCAxLjUzMy44NTggMi44NTcgMS45NDkgMy44OTdjLjcyNy43MDEgMS44NyAxLjQyOSAyLjY0OSAxLjg5NmExLjQ3IDEuNDcgMCAwIDAgMS41MDcgMGMuNzgtLjQ2NyAxLjkyMi0xLjE5NSAyLjYyMy0xLjg5NmMxLjExNy0xLjAzOSAxLjk3NC0yLjM2NCAxLjk3NC0zLjg5N2MwLTEuNjYyLTEuMjQ3LTMuMTQyLTMuMDM5LTMuMTQyYy0xLjA2NSAwLTEuNzkyLjU0NS0yLjMzOCAxLjI5OGMtLjQ5My0uNzUzLTEuMjQ2LTEuMjk4LTIuMzEyLTEuMjk4Ii8+PC9zdmc+"></a>
+        <!-- <span>&nbsp;</span> -->
+        <!-- <a href="https://ko-fi.com/CathRTic_tv"><img align="right" src="https://img.shields.io/badge/Support%20me%20on%20Ko--fi-%231F6FEBFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTEuMzUxIDIuNzE1Yy0yLjcgMC00Ljk4Ni4wMjUtNi44My4yNkMyLjA3OCAzLjI4NSAwIDUuMTU0IDAgOC42MWMwIDMuNTA2LjE4MiA2LjEzIDEuNTg1IDguNDkzYzEuNTg0IDIuNzAxIDQuMjMzIDQuMTgyIDcuNjYyIDQuMTgyaC44M2M0LjIwOSAwIDYuNDk0LTIuMjM0IDcuNjM3LTRhOS41IDkuNSAwIDAgMCAxLjA5MS0yLjMzOEMyMS43OTIgMTQuNjg4IDI0IDEyLjIyIDI0IDkuMjA4di0uNDE1YzAtMy4yNDctMi4xMy01LjUwNy01Ljc5Mi01Ljg3Yy0xLjU1OC0uMTU2LTIuNjUtLjIwOC02Ljg1Ny0uMjA4bTAgMS45NDdjNC4yMDggMCA1LjA5LjA1MiA2LjU3MS4xODJjMi42MjQuMzExIDQuMTMgMS41ODQgNC4xMyA0di4zOWMwIDIuMTU2LTEuNzkyIDMuODQ0LTMuODcgMy44NDRoLS45MzVsLS4xNTYuNjQ5Yy0uMjA4IDEuMDEzLS41OTcgMS44MTgtMS4wMzkgMi41NDZjLS45MDkgMS40MjgtMi41NDUgMy4wNjQtNS45MjIgMy4wNjRoLS44MDVjLTIuNTcxIDAtNC44MzEtLjg4My02LjA3OC0zLjE5NWMtMS4wOS0yLTEuMjk4LTQuMTU1LTEuMjk4LTcuNTA2YzAtMi4xODEuODU3LTMuNDAyIDMuMDEyLTMuNzE0YzEuNTMzLS4yMzMgMy41NTktLjI2IDYuMzktLjI2bTYuNTQ3IDIuMjg3Yy0uNDE2IDAtLjY1LjIzNC0uNjUuNTQ2djIuOTM1YzAgLjMxMS4yMzQuNTQ1LjY1LjU0NWMxLjMyNCAwIDIuMDUxLS43NTQgMi4wNTEtMnMtLjcyNy0yLjAyNi0yLjA1Mi0yLjAyNm0tMTAuMzkuMTgyYy0xLjgxOCAwLTMuMDEzIDEuNDgtMy4wMTMgMy4xNDJjMCAxLjUzMy44NTggMi44NTcgMS45NDkgMy44OTdjLjcyNy43MDEgMS44NyAxLjQyOSAyLjY0OSAxLjg5NmExLjQ3IDEuNDcgMCAwIDAgMS41MDcgMGMuNzgtLjQ2NyAxLjkyMi0xLjE5NSAyLjYyMy0xLjg5NmMxLjExNy0xLjAzOSAxLjk3NC0yLjM2NCAxLjk3NC0zLjg5N2MwLTEuNjYyLTEuMjQ3LTMuMTQyLTMuMDM5LTMuMTQyYy0xLjA2NSAwLTEuNzkyLjU0NS0yLjMzOCAxLjI5OGMtLjQ5My0uNzUzLTEuMjQ2LTEuMjk4LTIuMzEyLTEuMjk4Ii8+PC9zdmc+"></a> -->
     </div>
-</div> -->
+</div>
 
 <br>
 
@@ -28,10 +32,12 @@ My DaVinci Resolve scripts, designed to streamline editing and uploading.
 <br>
 
 ## Installation and Usage Guide
-To install these scripts, download and extract this project, then move it into your DaVinci Resolve Scripts folder.
+To install these scripts, download and extract this project, then move it into your DaVinci Resolve `/Scripts/Utility` folder.
 
-On Windows, this is typically located at:\
-`%AppData%/Blackmagic Design/DaVinci Resolve/Support/Fusion/Scripts/Utility/`
+On Windows, this is located at:\
+`%AppData%/Blackmagic Design/DaVinci Resolve/Support/Fusion/Scripts/Utility/`\
+On Linux via AUR, this is at:\
+`~/.local/share/DaVinciResolve/Fusion/Scripts/Utility/`
 
 <br>
 

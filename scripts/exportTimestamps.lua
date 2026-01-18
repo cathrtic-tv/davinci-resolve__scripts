@@ -41,7 +41,7 @@ local function exportTimestamps(outputPath)
         'endHours', 'endMinutes', 'endSeconds', 'endMilliseconds'
     }
     local outputJson = json.encode(outputTable, { indent = true, keyorder = keyorder })
-    local outputFile = io.open(tostring(Path:new(outputPath, 'timestamps.json')), 'w')
+    local outputFile = assert(io.open(tostring(Path:new(outputPath, 'timestamps.json')), 'w'))
     outputFile:write(outputJson)
     outputFile:close()
 

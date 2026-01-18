@@ -1,7 +1,4 @@
 .vscode/
 
 .env*
-!.env*.example
-
-console.ansi
-console.log
+!.env.example*

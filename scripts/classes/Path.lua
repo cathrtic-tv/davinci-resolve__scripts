@@ -36,7 +36,14 @@ end
 
 -- Convert Path to string
 function Path:__tostring()
-    return table.concat(self.segments, '/')
+    local output = table.concat(self.segments, '/')
+
+    -- If Unix, prepend '/'
+    if (package.config:sub(1,1) == '/') then
+        return '/' .. output
+    else
+        return output
+    end
 end
 
 
